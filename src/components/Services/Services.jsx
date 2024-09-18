@@ -26,7 +26,7 @@ const ProductsData = [
 
 const Services = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const { addToCart } = useContext(CartContext);
+  const {  addToCart} = useContext(CartContext);
 
   const handleAddToCart = (product) => {
     addToCart(product);

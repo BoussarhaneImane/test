@@ -23,11 +23,26 @@ export const CartProvider = ({ children }) => {
     }
   }, [cartItems, userName]);
 
+  
+
   const addToCart = (product) => {
-    setCartItems(prevCartItems => [
-      ...prevCartItems,
-      { ...product, quantity: 1 }
-    ]);
+    setCartItems(prevCartItems => {
+      // Ensure prevCartItems is always an array
+      const updatedCartItems = Array.isArray(prevCartItems) ? prevCartItems : [];
+  
+      const existingItem = updatedCartItems.find(item => item.id === product.id);
+  
+      if (existingItem) {
+        return updatedCartItems.map(item =>
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        );
+      } else {
+        return [
+          ...updatedCartItems,
+          { ...product, quantity: 1 }
+        ];
+      }
+    });
   };
 
   const handleQuantityChange = (id, newQuantity) => {

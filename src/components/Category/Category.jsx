@@ -27,7 +27,7 @@ const ProductsData = [
 
 const Category = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const { addToCart } = useContext(CartContext);
+  const {  addToCart } = useContext(CartContext);
 
   const handleAddToCart = (product) => {
     addToCart(product);

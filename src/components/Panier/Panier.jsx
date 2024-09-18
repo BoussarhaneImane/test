@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { FaTrash } from "react-icons/fa";
-import './Panier.css';
+import './Panier.css'
 import { CartContext } from '../../components/context/CartContext';
 
 const Panier = () => {
@@ -45,7 +45,7 @@ const Panier = () => {
                   onClick={() => handleRemoveItem(item.id)}
                   className="remove-item"
                 >
-                  <FaTrash size={30} className="ml-8 md:ml-12 lg:ml-16 xl:ml-16" />
+                  <FaTrash size={30} className="ml-8 md:ml-12 lg:ml-16 xl:ml-16" /> 
                 </button>
               </div>
             </div>
@@ -63,4 +63,4 @@ const Panier = () => {
   );
 };
 
-export default Panier;
+export default Panier;   

@@ -29,10 +29,10 @@ const ProductsData = [
 const Banner = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const { addToCart } = useContext(CartContext);
+  const {addToCart} = useContext(CartContext);
 
   const handleAddToCart = (product) => {
-    addToCart(product);
+   addToCart(product);
   };
 
   const prevProduct = () => {
