@@ -1,0 +1,66 @@
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Assurez-vous que la barre de navigation est au-dessus des autres éléments */
+  background-color: white; /* Garder la même couleur de fond */
+  box-shadow: 0 2px 10px rgba(56, 56, 56, 0.1); /* Optionnel : Ajoutez une ombre subtile pour un effet visuel */
+}
+/* Style pour le conteneur du lien */
+.relative {
+  position: relative; /* Nécessaire pour positionner les éléments enfants en absolu */
+}
+
+/* Style pour le nombre d'articles */
+.cart-count {
+  position: absolute; /* Positionnement absolu pour placer l'élément par rapport au conteneur parent */
+  top: -10px; /* Ajuster en fonction de la taille de l'icône */
+  right: -10px; /* Ajuster en fonction de la taille de l'icône */
+  background-color: red; /* Couleur de fond du badge */
+  color: white; /* Couleur du texte du badge */
+  border-radius: 50%; /* Badge arrondi */
+  width: 20px; /* Largeur du badge */
+  height: 20px; /* Hauteur du badge */
+  display: flex; /* Flexbox pour centrer le texte */
+  align-items: center; /* Centrer verticalement */
+  justify-content: center; /* Centrer horizontalement */
+  font-size: 12px; /* Taille de la police */
+  font-weight: bold; /* Police en gras */
+  z-index: 10; /* S'assurer que le badge est au-dessus de l'icône */
+}
+
+
+body {
+  padding-top: 80px; /* Ajustez cette valeur en fonction de la hauteur de votre nav */
+}
+
+#menu-hover{
+   padding: 10rem;
+   transition: color 0.5s;
+     }
+     
+#menu-hover:hover{
+color: white;
+}
+/* Add this to your Nav.css */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.5s forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+ 
+}
+
+@media (max-width: 1024px) { /* or adjust based on your breakpoints */
+  .cart-count {
+    top: -0.5rem; /* Adjust as necessary */
+    right: 17rem; /* Adjust as necessary */
+  }}
