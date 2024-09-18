@@ -1,12 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
 import { FaTrash } from "react-icons/fa";
-import './Panier.css'
+import './Panier.css';
 import { CartContext } from '../../components/context/CartContext';
 
 const Panier = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const { cartItems, handleQuantityChange, handleRemoveItem } = useContext(CartContext);
 
+  // Calculate the total price whenever cartItems change
   useEffect(() => {
     const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
     setTotalPrice(total);
@@ -63,4 +64,4 @@ const Panier = () => {
   );
 };
 
-export default Panier;   
+export default Panier;

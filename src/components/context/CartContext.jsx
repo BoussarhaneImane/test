@@ -3,40 +3,35 @@ import React, { createContext, useState, useEffect } from 'react';
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
+  // Initialize cartItems with localStorage
   const [userName, setUserName] = useState(localStorage.getItem('userName') || '');
+  const cartKey = userName ? `cart_${userName}` : 'cart_guest';
+  const [cartItems, setCartItems] = useState(() => {
+    // Retrieve from localStorage during initial render
+    const storedCartItems = localStorage.getItem(cartKey);
+    return storedCartItems ? JSON.parse(storedCartItems) : [];
+  });
 
   useEffect(() => {
-    if (userName) {
-      const cartKey = `cart_${userName}`;
-      const storedCartItems = localStorage.getItem(cartKey);
-      if (storedCartItems) {
-        setCartItems(JSON.parse(storedCartItems));
-      }
-    }
-  }, [userName]);
-
-  useEffect(() => {
-    if (userName) {
-      const cartKey = `cart_${userName}`;
-      localStorage.setItem(cartKey, JSON.stringify(cartItems));
-    }
-  }, [cartItems, userName]);
-
-  
+    // Whenever cartItems change, store in localStorage
+    localStorage.setItem(cartKey, JSON.stringify(cartItems));
+  }, [cartItems, cartKey]);
 
   const addToCart = (product) => {
     setCartItems(prevCartItems => {
       // Ensure prevCartItems is always an array
       const updatedCartItems = Array.isArray(prevCartItems) ? prevCartItems : [];
   
+      // Check if the product already exists in the cart
       const existingItem = updatedCartItems.find(item => item.id === product.id);
   
       if (existingItem) {
+        // If the product already exists, increase the quantity
         return updatedCartItems.map(item =>
           item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         );
       } else {
+        // If the product doesn't exist in the cart, add it
         return [
           ...updatedCartItems,
           { ...product, quantity: 1 }

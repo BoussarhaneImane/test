@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { CiCircleChevLeft, CiCircleChevRight } from "react-icons/ci";
 import { FaShoppingCart } from "react-icons/fa";
+import { uid } from 'uid';
 import "./Services.css";
 
 // Images
@@ -14,14 +15,14 @@ import Vetement7Img from "../../images/baner-right-image-02.jpg";
 import Vetement8Img from "../../images/women-03.jpg";
 import { CartContext } from '../../components/context/CartContext';
 const ProductsData = [
-  { id: 1, img: Vetement1Img, title: "Robe Évasée en Soie", price: 120 },
-  { id: 2, img: Vetement2Img, title: "Blouse Élégante en Dentelle", price: 80 },
-  { id: 3, img: Vetement3Img, title: "Pantalon Taille Haute", price: 90 },
-  { id: 4, img: Vetement4Img, title: "Veste en Cuir", price: 150 },
-  { id: 5, img: Vetement5Img, title: "Jupe Crayon", price: 70 },
-  { id: 6, img: Vetement6Img, title: "Cardigan Doux", price: 65 },
-  { id: 7, img: Vetement7Img, title: "Manteau Long en Laine", price: 180 },
-  { id: 8, img: Vetement8Img, title: "T-shirt Basique", price: 40 },
+  { id: uid(), img: Vetement1Img, title: "Robe Évasée en Soie", price: 120 },
+  { id: uid(), img: Vetement2Img, title: "Blouse Élégante en Dentelle", price: 80 },
+  { id: uid(), img: Vetement3Img, title: "Pantalon Taille Haute", price: 90 },
+  { id: uid(), img: Vetement4Img, title: "Veste en Cuir", price: 150 },
+  { id: uid(), img: Vetement5Img, title: "Jupe Crayon", price: 70 },
+  { id: uid(), img: Vetement6Img, title: "Cardigan Doux", price: 65 },
+  { id: uid(), img: Vetement7Img, title: "Manteau Long en Laine", price: 180 },
+  { id: uid(), img: Vetement8Img, title: "T-shirt Basique", price: 40 },
 ];
 
 const Services = () => {
