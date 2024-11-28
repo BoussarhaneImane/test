@@ -37,7 +37,7 @@ const Navbar = () => {
   const cancelLogout = () => setIsLogoutConfirmOpen(false);
 
   return (
-    <nav className="bg-white py-2 shadow-md">
+    <nav className="bg-white py-2 shadow-xs">
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
         <Link to="/" className="flex items-center font-medium">
           <img src={logopng} alt="Logo" className="w-36 h-36 ml-12" />
@@ -58,10 +58,10 @@ const Navbar = () => {
             </button>
             {isDropdownOpen && (
               <ul className="absolute left-0 mt-2 bg-white shadow-md space-y-2 p-4 w-48">
-                <Link to="/shop/chaussures" className="block px-4 py-2 hover:bg-gray-50">Chaussures</Link>
-                <Link to="/shop/sacs" className="block px-4 py-2 hover:bg-gray-50">Sacs</Link>
-                <Link to="/shop/foulards" className="block px-4 py-2 hover:bg-gray-50">Foulards</Link>
-                <Link to="/shop/vetements" className="block px-4 py-2 hover:bg-gray-50">Vêtements</Link>
+                <Link to="/" className="block px-4 py-2 hover:bg-gray-50">Chaussures</Link>
+                <Link to="/" className="block px-4 py-2 hover:bg-gray-50">Sacs</Link>
+                <Link to="/" className="block px-4 py-2 hover:bg-gray-50">Foulards</Link>
+                <Link to="/" className="block px-4 py-2 hover:bg-gray-50">Vêtements</Link>
               </ul>
             )}
           </div>
@@ -107,7 +107,7 @@ const Navbar = () => {
             <Link to="/about" className="block hover:text-gray-500 font-medium">À propos</Link>
             <div className="relative">
               <button
-                className="font-medium hover:text-gray-500"
+                className="font-medium hover:text-gray-500 mb-3"
                 onClick={toggleDropdown}
                 aria-expanded={isDropdownOpen}
                 aria-haspopup="true"
@@ -116,10 +116,10 @@ const Navbar = () => {
               </button>
               {isDropdownOpen && (
                 <ul className="absolute left-0 mt-2 bg-white shadow-md space-y-2 p-4 w-48">
-                  <Link to="/shop/chaussures" className="block px-4 py-2 hover:bg-gray-50">Chaussures</Link>
-                  <Link to="/shop/sacs" className="block px-4 py-2 hover:bg-gray-50">Sacs</Link>
-                  <Link to="/shop/foulards" className="block px-4 py-2 hover:bg-gray-50">Foulards</Link>
-                  <Link to="/shop/vetements" className="block px-4 py-2 hover:bg-gray-50">Vêtements</Link>
+                  <Link to="/" className="block px-4 py-2 hover:bg-gray-50">Chaussures</Link>
+                  <Link to="/" className="block px-4 py-2 hover:bg-gray-50">Sacs</Link>
+                  <Link to="/" className="block px-4 py-2 hover:bg-gray-50">Foulards</Link>
+                  <Link to="/" className="block px-4 py-2 hover:bg-gray-50">Vêtements</Link>
                 </ul>
               )}
             </div>

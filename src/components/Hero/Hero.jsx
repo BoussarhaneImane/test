@@ -4,6 +4,7 @@ import imgxx from './baner-right-image-01.jpg';
 import imgbb from './baner-right-image-02.jpg';
 import imgkk from './baner-right-image-03.jpg';
 import imgcc from './baner-right-image-04.jpg';
+import { Link } from 'react-router-dom';
 import './hero.css';
 
 const Hero = () => {
@@ -21,7 +22,7 @@ const Hero = () => {
                                         <h4 className='text-3xl md:text-4xl font-medium'>Elite Shop</h4>
                                         <span>Chaussures, Sacs et Prêt-à-porter pour femmes</span>
                                         <div className="main-border-button mt-4">
-                                            <a href="#men">Découvrir</a>
+                                           <Link to='/'>Découvrir</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -41,7 +42,7 @@ const Hero = () => {
                                             <h4 className='text-2xl md:text-4xl font-medium'>Chaussures</h4>
                                             <p className="mt-2 text-sm md:text-base">Chaussures élégantes et confortables pour toutes vos occasions.</p>
                                             <div className="main-border-button mt-4">
-                                                <a href="chaussures.html">Découvrir</a>
+                                            <Link to='/'>Découvrir</Link>
                                             </div>
                                         </div>
                                     </div>
@@ -57,7 +58,7 @@ const Hero = () => {
                                             <h4 className='text-2xl md:text-4xl font-medium'>Vêtements</h4>
                                             <p className="mt-2 text-sm md:text-base">Des vêtements tendance, alliant style et confort au quotidien.</p>
                                             <div className="main-border-button mt-4">
-                                                <a href="vetements.html">Découvrir</a>
+                                            <Link to='/'>Découvrir</Link>
                                             </div>
                                         </div>
                                     </div>
@@ -73,7 +74,7 @@ const Hero = () => {
                                             <h4 className='text-2xl md:text-4xl font-medium'>Sacs</h4>
                                             <p className="mt-2 text-sm md:text-base">Sacs en cuir véritable, élégants et pratiques pour un look raffiné.</p>
                                             <div className="main-border-button mt-4">
-                                                <a href="sacs.html">Découvrir</a>
+                                            <Link to='/'>Découvrir</Link>
                                             </div>
                                         </div>
                                     </div>
@@ -89,7 +90,7 @@ const Hero = () => {
                                             <h4 className='text-2xl md:text-4xl font-medium'>Foulards</h4>
                                             <p className="mt-2 text-sm md:text-base">Foulards et écharpes délicats pour une touche chic et sophistiquée.</p>
                                             <div className="main-border-button mt-4">
-                                                <a href="foulards.html">Découvrir</a>
+                                            <Link to='/'>Découvrir</Link>
                                             </div>
                                         </div>
                                     </div>

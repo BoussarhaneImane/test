@@ -28,7 +28,7 @@ const SignupC = () => {
     setLoading(true);
     console.log('Submitting:', formData);
     try {
-      const response = await axios.post('https://backend-biblio-4.onrender.com/register', formData);
+      const response = await axios.post('http://localhost:5000/register', formData);
       console.log('Response:', response.data);
       setFormData({
         name: '',
@@ -36,13 +36,14 @@ const SignupC = () => {
         password: ''
       });
       localStorage.setItem('userName', formData.name);
-      navigate('/');
+      navigate('/'); // Redirigez après l'inscription réussie
     } catch (error) {
       console.error('Error during registration:', error.response ? error.response.data : error.message);
     } finally {
       setLoading(false);
     }
   };
+  
 
   // Toggle password visibility
   const togglePasswordVisibility = () => {
@@ -61,6 +62,7 @@ const SignupC = () => {
               name="name" 
               value={formData.name} 
               onChange={handleChange}  
+              className='text-xs italic text-gray-900'
             />
             <label>Nom</label>
           </div>
@@ -70,6 +72,7 @@ const SignupC = () => {
               name="email" 
               value={formData.email} 
               onChange={handleChange}  
+              className='text-xs italic text-gray-900'
             />
             <label>Email</label>
           </div>
@@ -79,6 +82,7 @@ const SignupC = () => {
               name="password" 
               value={formData.password} 
               onChange={handleChange}  
+              className='text-xs italic text-gray-900'
             />
             <label>Mot de passe</label>
             <span className="password-toggle-icon" onClick={togglePasswordVisibility}>

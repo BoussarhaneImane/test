@@ -2,6 +2,8 @@ import React, { useState, useContext } from "react";
 import { CiCircleChevLeft, CiCircleChevRight } from "react-icons/ci";
 import { FaShoppingCart } from "react-icons/fa";
 import "./Banner.css";
+import { uid } from 'uid';
+
 
 // Image paths
 import  Chaussure1Img from "../../images/instagram-04.jpg";
@@ -16,14 +18,14 @@ import { CartContext } from '../../components/context/CartContext';
 // Products data
 // Updated Products Data
 const ProductsData = [
-  { id: 1, img: Chaussure1Img, title: "Ballerines Élégantes", price: 75 },
-  { id: 2, img: Chaussure2Img, title: "Escarpins en Cuir", price: 120 },
-  { id: 3, img: Chaussure3Img, title: "Bottes Hautes", price: 150 },
-  { id: 4, img: Chaussure4Img, title: "Sandales Chic", price: 85 },
-  { id: 5, img: Chaussure5Img, title: "Mocassins Confortables", price: 95 },
-  { id: 6, img: Chaussure6Img, title: "Chaussures de Sport", price: 110 },
-  { id: 7, img: Chaussure7Img, title: "Chaussures en Suède", price: 100 },
-  { id: 8, img: Chaussure8Img, title: "Bottines Casual", price: 90 },
+  { id: uid(), img: Chaussure1Img, title: "Ballerines Élégantes", price: 75 },
+  { id: uid(), img: Chaussure2Img, title: "Escarpins en Cuir", price: 120 },
+  { id: uid(), img: Chaussure3Img, title: "Bottes Hautes", price: 150 },
+  { id: uid(), img: Chaussure4Img, title: "Sandales Chic", price: 85 },
+  { id: uid(), img: Chaussure5Img, title: "Mocassins Confortables", price: 95 },
+  { id: uid(), img: Chaussure6Img, title: "Chaussures de Sport", price: 110 },
+  { id: uid(), img: Chaussure7Img, title: "Chaussures en Suède", price: 100 },
+  { id: uid(), img: Chaussure8Img, title: "Bottines Casual", price: 90 },
 ];
 
 const Banner = () => {

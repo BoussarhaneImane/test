@@ -4,42 +4,42 @@ import React, { createContext, useState, useEffect } from 'react';
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
+  // Initialize cartItems with localStorage
   const [userName, setUserName] = useState(localStorage.getItem('userName') || '');
+  
+    // Retrieve from localStorage during initial render
+  const cartKey = userName ? `cart_${userName}` : 'cart_guest';
+  const [cartItems, setCartItems] = useState(() => {
+    const storedCartItems = localStorage.getItem(cartKey);
+    return storedCartItems ? JSON.parse(storedCartItems) : [];
+  });
 
-  // Fonction pour obtenir la clé du panier liée à un utilisateur
-  const getCartKey = () => `cart_${userName}`;
-
+ 
   // Charger les articles du panier à partir de localStorage
   useEffect(() => {
-    if (userName) {
-      const storedCartItems = localStorage.getItem(getCartKey());
-      if (storedCartItems) {
-        setCartItems(JSON.parse(storedCartItems));
-      }
-    }
-  }, [userName]);
+    // Whenever cartItems change, store in localStorage
+    localStorage.setItem(cartKey, JSON.stringify(cartItems));
+  }, [cartItems, cartKey]);
 
-  // Sauvegarder les articles du panier dans localStorage
-  useEffect(() => {
-    if (userName) {
-      localStorage.setItem(getCartKey(), JSON.stringify(cartItems));
-    }
-  }, [cartItems, userName]);
-
-  // Fonction pour ajouter un produit au panier, en mélangeant les produits de tous les composants
   const addToCart = (product) => {
-    setCartItems((prevCartItems) => {
-      const existingItem = prevCartItems.find((item) => item.id === product.id);
-
+    setCartItems(prevCartItems => {
+      // Ensure prevCartItems is always an array
+      const updatedCartItems = Array.isArray(prevCartItems) ? prevCartItems : [];
+  
+      // Check if the product already exists in the cart
+      const existingItem = updatedCartItems.find(item => item.id === product.id);
+  
       if (existingItem) {
-        // Si le produit existe déjà, augmenter la quantité
-        return prevCartItems.map((item) =>
+        // If the product already exists, increase the quantity
+        return updatedCartItems.map(item =>
           item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         );
       } else {
-        // Sinon, ajouter le nouveau produit à la liste globale
-        return [...prevCartItems, { ...product, quantity: 1 }];
+        // If the product doesn't exist in the cart, add it
+        return [
+          ...updatedCartItems,
+          { ...product, quantity: 1 }
+        ];
       }
     });
   };

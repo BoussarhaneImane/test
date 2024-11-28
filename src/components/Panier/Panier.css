@@ -1,3 +1,18 @@
+.checkout-forms-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem; 
+  margin-top: 5rem;
+}
+
+.form-container {
+  flex: 1; /* Chaque formulaire prend la même largeur */
+  max-width: 48%; /* Assurez-vous que les deux formulaires ne prennent pas plus de 48% chacun */
+  padding: 1rem;
+  border: solid 1px black;
+  background-color: #fefefe; /* Fond pour chaque formulaire */
+}
 .shop-page-container {
   padding: 2rem;
   background-color: #ffffff;
@@ -111,6 +126,41 @@
   background: #333; /* Slightly lighter hover background */
 }
 
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrer les inputs */
+  margin-top: 2rem;
+}
+
+.form-inputs{
+  width: 70%; /* Faire prendre 80% de la largeur */
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: solid 1px black !important;
+  font-size: 0.90rem;
+  color: #333;
+}
+
+.form-inputs::placeholder {
+  font-size: 0.8rem;
+  color: rgb(146, 146, 146); /* Placeholder gris */
+}
+
+.submit-btn {
+  padding: 0.75rem 2rem;
+  background-color: #000;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #333;
+}
+
+
 @media (max-width: 768px) {
   .shop-item {
     flex-direction: column;
@@ -156,5 +206,16 @@
   .checkout-btn {
     font-size: 1rem; /* Adjust button font size for small screens */
     padding: 0.5rem 1rem;
+  }
+  .form-inputs{
+    width: 100%; /* Prendre la largeur complète sur petits écrans */
+  }
+  .checkout-forms-container {
+    flex-direction: column; /* Sur petits écrans, les formulaires s'empilent */
+    align-items: center;
+  }
+
+  .form-container {
+    max-width: 100%; /* Les formulaires prennent 100% de la largeur sur petits écrans */
   }
 }
